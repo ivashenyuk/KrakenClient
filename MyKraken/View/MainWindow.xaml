@@ -1,0 +1,43 @@
+﻿<Window x:Class="MyKraken.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:MyKraken.NewChart"
+        xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="976.562"
+        WindowStartupLocation="CenterScreen"
+        FontSize="14">
+    <Window.DataContext>
+        <local:Chart/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" VerticalContentAlignment="Center" VerticalAlignment="Stretch">
+            <MenuItem Header="New">
+                <MenuItem Name="NewChart" Header="Chart" Click="NewChart_Click"/>
+            </MenuItem>
+        </Menu>
+        <TabControl TabStripPlacement="Bottom" Grid.Row="1" Name="TabCharts">
+
+            <!--<TabItem>
+                <Grid >
+                    <oxy:PlotView Model="{Binding Model}" Name="ChartViewer" />
+                </Grid>
+            </TabItem>-->
+            <TabItem Padding="0">
+                <!--<Frame Content="{Binding SettingsMenu}" Height="Auto" NavigationUIVisibility ="Hidden" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Source="Pages/SettingsChart.xaml"/>-->
+
+                <TabItem.HeaderTemplate>
+                    <DataTemplate>
+                        <Button Content="+"  Click="Button_Click" Width="18"/>
+                    </DataTemplate>
+                </TabItem.HeaderTemplate>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
